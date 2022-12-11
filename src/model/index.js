@@ -73,6 +73,27 @@ const HotelModel = new Schema(
   { timestamps: true }
 );
 
-const Hotel = mongoose.model("hotel", HotelModel);
+const UserModel = new Schema(
+  {
+    name: {
+      type: String,
+      require: true
+    },
+    password: {
+      type: String,
+      require: true
+    },
+    liked: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "hotel"
+      },
+    ]
+  },
+  { timestamps: true }
+);
 
-module.exports = { Hotel };
+const Hotel = mongoose.model("hotel", HotelModel);
+const User = mongoose.model("user", UserModel);
+
+module.exports = { Hotel, User };

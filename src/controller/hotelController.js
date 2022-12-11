@@ -32,10 +32,9 @@ const hotelController = {
   searchHotel: async (req, res) => {
     try {
       if (req.query.city) {
-        console.log(req.query.city)
         const item = await Hotel.find({
           slug: { $regex: new RegExp(req.query.q) },
-          address: { $regex: new RegExp(req.query.city)},
+          address: { $regex: new RegExp(req.query.city) },
         });
         res.json(item);
       } else {
