@@ -7,7 +7,7 @@ const hotelController = {
       const data = await Hotel.find({});
       res.json(data);
     } catch (error) {
-      console.log(error, "get all hotel false");
+      res.json("get all hotel false");
     }
   },
   // get a hotel
@@ -16,7 +16,7 @@ const hotelController = {
       const item = await Hotel.findOne({ slug: req.params.slug });
       res.json(item);
     } catch (error) {
-      console.log(error, "add a hotel false");
+      res.json("add a hotel false");
     }
   },
   // add a hotel
@@ -26,9 +26,10 @@ const hotelController = {
       item.save();
       res.json("Add a hotel succesful");
     } catch (error) {
-      console.log(error, "add a hotel false");
+      res.json("add a hotel false");
     }
   },
+  // search hotel
   searchHotel: async (req, res) => {
     try {
       if (req.query.city) {
@@ -44,9 +45,35 @@ const hotelController = {
         res.json(item);
       }
     } catch (error) {
-      console.log(error, "search hotel false");
+      res.json("search hotel false");
     }
   },
+  // get hotel popular with star > 3.5
+  popularHotel: async (req, res) => {
+    try {
+      const items = await Hotel.find({star: {$gt: 3.5}})
+      if(items) {
+        res.json(items);
+      } else {
+        res.json("no hotel finded");
+      }
+    } catch (error) {
+      res.json("false get popular hotel");
+    }
+  },
+  // get hotel recomend with star > 4
+  recomendHotel: async (req, res) => {
+    try {
+      const items = await Hotel.find({star: {$gt: 4}})
+      if(items) {
+        res.json(items);
+      } else {
+        res.json("no hotel finded");
+      }
+    } catch (error) {
+      res.json("false get recomend hotel");
+    }
+  }
 };
 
 module.exports = hotelController;
