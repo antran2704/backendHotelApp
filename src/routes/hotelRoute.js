@@ -3,6 +3,7 @@ const router = express.Router();
 
 const hotelController = require("../controller/hotelController");
 
+router.get("/", hotelController.getAllHotel);
 router.get("/hotel/all", hotelController.getAllHotel);
 router.get("/hotel/search", hotelController.searchHotel);
 router.get("/hotel/popular", hotelController.popularHotel);
