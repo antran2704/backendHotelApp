@@ -58,6 +58,20 @@ const HotelModel = new Schema(
         default: false,
       },
     },
+    room: {
+      typeRoom: {
+        type: String,
+        default: ""
+      },
+      areaRoom: {
+        type: Number,
+        default: NaN
+      },
+      numberPeople: {
+        type: Number,
+        default: NaN
+      }
+    },
     listImage: [
       {
         type: String,
@@ -77,18 +91,18 @@ const UserModel = new Schema(
   {
     name: {
       type: String,
-      require: true
+      require: true,
     },
     password: {
       type: String,
-      require: true
+      require: true,
     },
     liked: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "hotel"
+        ref: "hotel",
       },
-    ]
+    ],
   },
   { timestamps: true }
 );
