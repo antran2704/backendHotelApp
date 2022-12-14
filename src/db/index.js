@@ -5,7 +5,6 @@ mongoose.set("strictQuery", true);
 async function connect() {
   try {
     await mongoose.connect(process.env.DATABASE_URL);
-    // await mongoose.connect("mongodb://localhost:27017/HotelApp");
     console.log("connected database succesfully");
   } catch (error) {
     console.log(error, "connect database false");

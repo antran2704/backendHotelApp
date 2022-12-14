@@ -48,10 +48,10 @@ const hotelController = {
       res.json("search hotel false");
     }
   },
-  // get hotel popular with star > 3.5
+  // get hotel popular with star > 4
   popularHotel: async (req, res) => {
     try {
-      const items = await Hotel.find({star: {$gt: 3.5}})
+      const items = await Hotel.find({star: {$gt: 4}})
       if(items) {
         res.json(items);
       } else {
@@ -61,10 +61,10 @@ const hotelController = {
       res.json("false get popular hotel");
     }
   },
-  // get hotel recomend with star > 4
+  // get hotel recomend with star < 4.2
   recomendHotel: async (req, res) => {
     try {
-      const items = await Hotel.find({star: {$gt: 4}})
+      const items = await Hotel.find({star: {$lt: 4.2}})
       if(items) {
         res.json(items);
       } else {

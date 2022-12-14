@@ -22,3 +22,5 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+# mongodb+srv://antran:cunyeu1506@cluster0.mflf25c.mongodb.net/hotelApp?retryWrites=true&w=majority
+# mongodb://localhost:27017/HotelApp
