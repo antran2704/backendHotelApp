@@ -64,6 +64,24 @@ const userController = {
       res.json("false get user");
     }
   },
+  editUserName: async (req, res) => {
+    try {
+      const user = await User.findOne({_id: req.params.id});
+      await user.updateOne({name: req.body.name});
+      res.json("update user name successfully");
+    } catch (error) {
+      res.json("update user name false");
+    }
+  },
+  editPassword: async (req, res) => {
+    try {
+      const user = await User.findOne({_id: req.params.id});
+      await user.updateOne({password: req.body.password});
+      res.json("update password successfully");
+    } catch (error) {
+      res.json("update password false");
+    }
+  },
   likeHotel: async (req, res) => {
     try {
       const userId = req.body.userId;
