@@ -107,7 +107,17 @@ const UserModel = new Schema(
   { timestamps: true }
 );
 
+const ImagesModel = new Schema(
+  {
+    ulrImage: {
+      type: String
+    }
+  },
+  { timestamps: true }
+)
+
 const Hotel = mongoose.model("hotel", HotelModel);
 const User = mongoose.model("user", UserModel);
+const Image = mongoose.model("image", ImagesModel);
 
-module.exports = { Hotel, User };
+module.exports = { Hotel, User, Image };
