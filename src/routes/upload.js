@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const router = express.Router();
+const uploadController = require("../controller/uploadController");
 
 const multer = require("multer");
 
@@ -15,9 +16,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-const uploadController = require("../controller/uploadController");
-
+router.get("/getImage", uploadController.getImage);
 router.post("/image", upload.single("avatar"), uploadController.uploadImage);
-router.get("/image", uploadController.getImage);
 
 module.exports = router;

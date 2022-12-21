@@ -1,5 +1,4 @@
 const { Image } = require("../model/index");
-const fs = require("fs");
 
 const uploadController = {
   uploadImage: async (req, res) => {
